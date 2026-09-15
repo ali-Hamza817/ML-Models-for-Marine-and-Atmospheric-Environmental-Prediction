@@ -18,6 +18,35 @@ PLOS ONE is ranked Q1 in Scimago SJR 2024 (Multidisciplinary) and Q2 in JCR (Mul
 | **Integrity audit** | Two leakage issues inflate 5 of the 7 headline results. **(1)** The released LSTM/Transformer checkpoints were trained on a random split that contains **84–86%** of the chronological test windows. **(2)** The rolling chlorophyll features of two datasets include the current target value. |
 | **Improvement** | On the **identical test rows**, significantly higher test R² on **5 of 7** datasets: `rolling_mean`, `cleaned_data`, `era5_daily`, `cast`, `hydrographic` (up to **+0.175**). `biotoxin` is a statistical tie. `processed_seq` does not reach the leaked reported value, but beats the paper's model in every leakage-free comparison. |
 
+## Paper vs. this work at a glance
+
+All values are test-set R² (higher is better) on **exactly the same test rows** as the paper.
+* Paper numbers are the published values; each one was reproduced (Section 2).
+* The 95% CIs use the paper's bootstrap procedure.
+* A result counts as significant when the 95% paired-bootstrap CI of the gain lies entirely above zero (2,000 resamples, against the authors' published predictions).
+
+| Dataset | Target | Paper best model | Paper R² [95% CI] | Paper MAE | Our approach | Our R² [95% CI] | Our MAE | R² gain | Relative gain | Result |
+|---|---|---|---|---|---|---|---|---|---|---|
+| `hydrographic` | Chl-a (CTD) | LSTM | 0.4579 [0.373, 0.539] | 0.1460 | GRU on history + current measurements, + LightGBM | **0.6327** [0.571, 0.690] | 0.1244 | **+0.1748** | +38.2% | **Improved (significant)** |
+| `cleaned_data` | Chl-a (raw) | XGB | 0.8305 [0.801, 0.852] | 0.0246 | Tuned LightGBM + XGBoost ensemble | **0.8843** [0.868, 0.898] | 0.0207 | **+0.0538** | +6.5% | **Improved (significant)** |
+| `era5_daily` | 10 m wind speed | RF | 0.5125 [0.489, 0.549] | 0.7749 | LightGBM + XGBoost on ERA5 physics features, + ExtraTrees | **0.5647** [0.553, 0.610] | 0.7035 | **+0.0522** | +10.2% | **Improved (significant)** |
+| `cast` | Bottom depth | RF | 0.3832 [0.357, 0.412] | 926.6 | Tuned LightGBM + Random Forest + XGBoost ensemble | **0.4182** [0.395, 0.443] | 923.0 | **+0.0350** | +9.1% | **Improved (significant)** |
+| `rolling_mean` | Chl-a (7-day mean) | XGB | 0.8715 [0.855, 0.886] | 0.0120 | Tuned XGBoost + LightGBM ensemble | **0.8901** [0.876, 0.902] | 0.0110 | **+0.0186** | +2.1% | **Improved (significant)** |
+| `biotoxin` | Biotoxin level | LSTM | 0.1707 [0.120, 0.223] | 14.210 | XGBoost + LightGBM on history-window features | **0.2072** [0.165, 0.246] | 14.613 | **+0.0365** | +21.4% | Tie (not significant) |
+| `processed_seq` | Chl-a (satellite) | LSTM | 0.5089 [0.449, 0.561] | 0.0442 | LightGBM + XGBoost on history + current measurements | **0.3801** [0.325, 0.435] | 0.0496 | **-0.1288** | -25.3% | Not improved* |
+
+* **Significantly improved on 5 of 7 datasets**, with an average R² gain of **+0.067** on those five.
+* The largest gain is on `hydrographic`: **+0.175**, or +38% relative.
+* \* `processed_seq`: the reported value comes from an LSTM that was trained on 85% of its own test windows (Section 3.1). With that leakage removed, this work is clearly better:
+
+| Dataset | Comparison without leaked information | Paper model R² | Our R² | R² gain |
+|---|---|---|---|---|
+| `processed_seq` | 178 test windows the paper's LSTM never trained on | 0.2443 | **0.4312** | **+0.1870** |
+| `hydrographic` | 110 test windows the paper's LSTM never trained on | 0.2813 | **0.5351** | **+0.2539** |
+| `biotoxin` | 107 test windows the paper's LSTM never trained on | 0.2068 | **0.2846** | **+0.0779** |
+| `rolling_mean` | Rolling features rebuilt from past values only (train-only fit) | 0.5916 | **0.6122** | **+0.0206** |
+| `cleaned_data` | Rolling features rebuilt from past values only (train-only fit) | 0.6895 | **0.7229** | **+0.0334** |
+
 ## Table of contents
 
 1. [The original study](#1-the-original-study)
@@ -245,13 +274,13 @@ Same test rows and the paper's inputs; 95% CIs as defined above.
 
 | Dataset | Paper best (reported) | Ours: train-only fit [95% CI] | Ours: train+val refit [95% CI] | Headline protocol | ΔR² vs paper [95% paired CI] | Significant | MAE paper → ours |
 |---|---|---|---|---|---|---|---|
-| `rolling_mean` | XGB 0.8715 | 0.8901 [0.876, 0.902] | 0.8983 [0.885, 0.910] | train-only | **+0.0186** [+0.011, +0.027] | yes | 0.012 → 0.01102 |
-| `cleaned_data` | XGB 0.8305 | 0.8843 [0.868, 0.898] | 0.8979 [0.883, 0.911] | train-only | **+0.0538** [+0.037, +0.073] | yes | 0.0246 → 0.02074 |
+| `rolling_mean` | XGB 0.8715 | 0.8901 [0.876, 0.902] | 0.8983 [0.885, 0.910] | train-only | **+0.0186** [+0.011, +0.027] | yes | 0.0120 → 0.0110 |
+| `cleaned_data` | XGB 0.8305 | 0.8843 [0.868, 0.898] | 0.8979 [0.883, 0.911] | train-only | **+0.0538** [+0.037, +0.073] | yes | 0.0246 → 0.0207 |
 | `era5_daily` | RF 0.5125 | 0.5647 [0.553, 0.610] | 0.5720 [0.561, 0.617] | train-only | **+0.0522** [+0.046, +0.059] | yes | 0.7749 → 0.7035 |
-| `processed_seq` | LSTM 0.5089 | 0.3547 [0.296, 0.414] | 0.3801 [0.325, 0.435] | train+val | **-0.1288** [-0.179, -0.077] | no | 0.0442 → 0.04956 |
-| `hydrographic` | LSTM 0.4579 | 0.5990 [0.537, 0.659] | 0.6327 [0.571, 0.690] | train+val | **+0.1748** [+0.124, +0.232] | yes | 0.146 → 0.1244 |
-| `biotoxin` | LSTM 0.1707 | 0.0455 [-0.005, 0.094] | 0.2072 [0.165, 0.246] | train+val | **+0.0365** [-0.007, +0.078] | no | 14.21 → 14.61 |
-| `cast` | RF 0.3832 | 0.4182 [0.395, 0.443] | 0.4397 [0.415, 0.463] | train-only | **+0.0350** [+0.023, +0.047] | yes | 926.6 → 923 |
+| `processed_seq` | LSTM 0.5089 | 0.3547 [0.296, 0.414] | 0.3801 [0.325, 0.435] | train+val | **-0.1288** [-0.179, -0.077] | no | 0.0442 → 0.0496 |
+| `hydrographic` | LSTM 0.4579 | 0.5990 [0.537, 0.659] | 0.6327 [0.571, 0.690] | train+val | **+0.1748** [+0.124, +0.232] | yes | 0.1460 → 0.1244 |
+| `biotoxin` | LSTM 0.1707 | 0.0455 [-0.005, 0.094] | 0.2072 [0.165, 0.246] | train+val | **+0.0365** [-0.007, +0.078] | no | 14.210 → 14.613 |
+| `cast` | RF 0.3832 | 0.4182 [0.395, 0.443] | 0.4397 [0.415, 0.463] | train-only | **+0.0350** [+0.023, +0.047] | yes | 926.6 → 923.0 |
 
 **Reading the table:**
 * **Significantly better on 5/7 datasets:** `rolling_mean`, `cleaned_data`, `era5_daily`, `cast`, `hydrographic`. The largest gain is on `hydrographic`: 0.458 → 0.633 (+38% relative).
