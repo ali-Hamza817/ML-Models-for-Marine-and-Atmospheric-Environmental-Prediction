@@ -1,0 +1,10 @@
+Dataset,Samples,Validation,Best R²,Best Model,DL Success,Difficulty
+biotoxin,"5,076",True,0.1707,LSTM,2/2,Hard
+cast,"21,865",True,0.3832,RF,0/0,Hard
+cleaned_data,"7,819",True,0.8305,XGB,2/2,Easy
+era5_daily,"102,982",True,0.5125,RF,0/0,Medium
+hydrographic,"4,653",True,0.4579,LSTM,2/2,Hard
+phyto_long,82,False,N/A,N/A,0/0,Unknown
+phyto_wide,440,False,N/A,N/A,0/0,Unknown
+processed_seq,"8,039",True,0.5089,LSTM,2/2,Medium
+rolling_mean,"8,855",True,0.8715,XGB,2/2,Easy

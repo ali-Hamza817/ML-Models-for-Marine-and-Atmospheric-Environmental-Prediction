@@ -1,0 +1,7 @@
+# exact paper environment for the XGB/RF reproduction and permutation test
+scikit-learn==1.5.2
+xgboost-cpu==2.1.1
+numpy<2.1
+pandas==2.2.3
+pyyaml
+joblib

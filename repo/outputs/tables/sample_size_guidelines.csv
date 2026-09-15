@@ -1,0 +1,9 @@
+Machine Learning Task,Minimum Sample Size,Recommended Size,Our Datasets Status
+Simple Linear Regression,30,100,Most datasets adequate
+Multiple Linear Regression,10 × n_features,20 × n_features,Adequate for low-dim datasets
+Random Forest,5 × n_features (min 100),10 × n_features (min 500),Adequate for most datasets
+Support Vector Regression,10 × n_features (min 200),20 × n_features (min 1000),Adequate for most datasets
+Neural Networks (Simple),100 × n_features,500 × n_features,Only large datasets adequate
+Deep Learning (LSTM),1000+ (time series),5000+ (time series),Only era5_daily adequate
+Cross-validation (5-fold),50 (10 per fold),500 (100 per fold),Most datasets adequate
+Bootstrap Confidence Intervals,30 (for stable estimates),100 (for robust estimates),Most datasets adequate

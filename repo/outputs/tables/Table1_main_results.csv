@@ -1,0 +1,8 @@
+Rank,Dataset,Type,#Samples,Best Model,R²,MAE,ΔR² vs Baseline,Difficulty
+1,rolling_mean,Time Series,8855,RF,0.855*,N/A,0.934,Easy
+2,cleaned_data,Cross-sectional,7819,RF,0.804*,N/A,0.811,Easy
+3,era5_daily,Time Series,102982,RF,0.700*,N/A,0.767,Medium
+4,hydrographic,Cross-sectional,4653,LSTM,0.688*,0.121,1.169,Medium
+5,processed_seq,Time Series,8039,LSTM,0.617*,0.042,0.665,Medium
+6,biotoxin,Cross-sectional,5076,LSTM,0.101*,15.586,0.109,Hard
+7,cast,Cross-sectional,21865,RF,0.051,N/A,0.112,Very Hard

@@ -1,0 +1,8 @@
+Dataset,Type,Samples,Variables,Target
+biotoxin,Biotoxin,5076,2,VALUE
+cast,Oceanographic,21865,25,Bottom_D
+era5_daily,Meteorological,102982,8,wind10
+cleaned_data,Chlorophyll-a,7819,69,G2chla
+rolling_mean,Chlorophyll-a,8855,69,G2chla
+processed_seq,Chlorophyll-a,8039,30,G2chla
+hydrographic,Chlorophyll-a,4653,11,CHLOROPHYLL-a (µg l-1)

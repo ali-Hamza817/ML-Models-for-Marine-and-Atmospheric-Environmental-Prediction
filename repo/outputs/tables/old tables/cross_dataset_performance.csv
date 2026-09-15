@@ -1,0 +1,10 @@
+Dataset,RF,XGB,SVR,LSTM,TRANSFORMER,Best,R²
+biotoxin,0.000,0.000,-0.484,0.078,-0.000,LSTM,0.078
+cast,0.955,0.960,0.572,N/A,N/A,XGB,0.960
+cleaned_data,0.961,1.000,0.839,0.275,0.087,XGB,1.000
+era5_daily,0.913,0.900,0.819,N/A,N/A,RF,0.913
+hydrographic,0.585,0.962,0.099,0.665,0.648,XGB,0.962
+phyto_long,0.321,0.771,-0.052,N/A,N/A,XGB,0.771
+phyto_wide,0.225,1.000,0.009,N/A,N/A,XGB,1.000
+processed_seq,0.317,0.813,0.155,0.436,0.312,XGB,0.813
+rolling_mean,0.972,1.000,0.903,0.555,0.204,XGB,1.000

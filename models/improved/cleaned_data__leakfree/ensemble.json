@@ -1,0 +1,49 @@
+{
+  "task": "cleaned_data (leak-free features)",
+  "ensemble_weights": {
+    "cleaned_data__leakfree__et": 0.13333333333333333,
+    "cleaned_data__leakfree__lgb": 0.3,
+    "cleaned_data__leakfree__xgb": 0.5666666666666667
+  },
+  "members": {
+    "cleaned_data__leakfree__et": {
+      "weight": 0.13333333333333333,
+      "train_only": {
+        "file": "cleaned_data__leakfree__et__train_only.joblib",
+        "test_R2_refit": 0.6873606184802897,
+        "test_R2_reported": 0.6873606184802897
+      },
+      "train_val": {
+        "file": "cleaned_data__leakfree__et__train_val.joblib",
+        "test_R2_refit": 0.7168332883352491,
+        "test_R2_reported": 0.7168332883352491
+      }
+    },
+    "cleaned_data__leakfree__lgb": {
+      "weight": 0.3,
+      "train_only": {
+        "file": "cleaned_data__leakfree__lgb__train_only.joblib",
+        "test_R2_refit": 0.708377289016044,
+        "test_R2_reported": 0.708377289016044
+      },
+      "train_val": {
+        "file": "cleaned_data__leakfree__lgb__train_val.joblib",
+        "test_R2_refit": 0.7231066349419811,
+        "test_R2_reported": 0.7231066349419811
+      }
+    },
+    "cleaned_data__leakfree__xgb": {
+      "weight": 0.5666666666666667,
+      "train_only": {
+        "file": "cleaned_data__leakfree__xgb__train_only.joblib",
+        "test_R2_refit": 0.7248532682485076,
+        "test_R2_reported": 0.7248532682485076
+      },
+      "train_val": {
+        "file": "cleaned_data__leakfree__xgb__train_val.joblib",
+        "test_R2_refit": 0.7384125900744662,
+        "test_R2_reported": 0.7384125900744662
+      }
+    }
+  }
+}

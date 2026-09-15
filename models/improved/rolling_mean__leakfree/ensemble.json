@@ -1,0 +1,35 @@
+{
+  "task": "rolling_mean (leak-free features)",
+  "ensemble_weights": {
+    "rolling_mean__leakfree__lgb": 0.6,
+    "rolling_mean__leakfree__xgb": 0.4
+  },
+  "members": {
+    "rolling_mean__leakfree__lgb": {
+      "weight": 0.6,
+      "train_only": {
+        "file": "rolling_mean__leakfree__lgb__train_only.joblib",
+        "test_R2_refit": 0.6152826932286438,
+        "test_R2_reported": 0.6152826932286438
+      },
+      "train_val": {
+        "file": "rolling_mean__leakfree__lgb__train_val.joblib",
+        "test_R2_refit": 0.6451242635646636,
+        "test_R2_reported": 0.6451242635646636
+      }
+    },
+    "rolling_mean__leakfree__xgb": {
+      "weight": 0.4,
+      "train_only": {
+        "file": "rolling_mean__leakfree__xgb__train_only.joblib",
+        "test_R2_refit": 0.5995063038148764,
+        "test_R2_reported": 0.5995063038148764
+      },
+      "train_val": {
+        "file": "rolling_mean__leakfree__xgb__train_val.joblib",
+        "test_R2_refit": 0.6445524064020363,
+        "test_R2_reported": 0.6445524064020363
+      }
+    }
+  }
+}

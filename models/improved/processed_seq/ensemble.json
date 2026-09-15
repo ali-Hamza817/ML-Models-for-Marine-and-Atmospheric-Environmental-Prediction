@@ -1,0 +1,35 @@
+{
+  "task": "processed_seq",
+  "ensemble_weights": {
+    "processed_seq__hybrid__lgb": 0.6333333333333333,
+    "processed_seq__hybrid__xgb": 0.36666666666666664
+  },
+  "members": {
+    "processed_seq__hybrid__lgb": {
+      "weight": 0.6333333333333333,
+      "train_only": {
+        "file": "processed_seq__hybrid__lgb__train_only.joblib",
+        "test_R2_refit": 0.3437602877406254,
+        "test_R2_reported": 0.3437602877406254
+      },
+      "train_val": {
+        "file": "processed_seq__hybrid__lgb__train_val.joblib",
+        "test_R2_refit": 0.36921058311522703,
+        "test_R2_reported": 0.36921058311522703
+      }
+    },
+    "processed_seq__hybrid__xgb": {
+      "weight": 0.36666666666666664,
+      "train_only": {
+        "file": "processed_seq__hybrid__xgb__train_only.joblib",
+        "test_R2_refit": 0.3584532916281141,
+        "test_R2_reported": 0.3584532916281141
+      },
+      "train_val": {
+        "file": "processed_seq__hybrid__xgb__train_val.joblib",
+        "test_R2_refit": 0.38596328866433816,
+        "test_R2_reported": 0.38596328866433816
+      }
+    }
+  }
+}

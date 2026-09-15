@@ -1,0 +1,8 @@
+Dataset,Best R²,Difficulty,Best Model,Samples,Rank
+rolling_mean,0.8554386826748228,Medium,RF,8855,1
+cleaned_data,0.803945750230708,Medium,RF,7819,2
+era5_daily,0.6996359211214163,Medium,RF,102982,3
+processed_seq,0.09009297349707664,Very Hard,RIDGE,8039,4
+cast,0.05057854277382292,Very Hard,RF,21865,5
+biotoxin,-0.006949596940621161,Very Hard,RF,5076,6
+hydrographic,-0.48050775868914036,Very Hard,MEAN,4653,7

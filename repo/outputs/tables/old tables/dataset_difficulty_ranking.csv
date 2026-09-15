@@ -1,0 +1,10 @@
+Dataset,Best_R²,Difficulty,Samples
+phyto_wide,1.000,Easy,440
+cleaned_data,1.000,Easy,7819
+rolling_mean,1.000,Easy,8855
+hydrographic,0.962,Easy,4653
+cast,0.960,Easy,21865
+era5_daily,0.913,Easy,102982
+processed_seq,0.813,Medium,8039
+phyto_long,0.771,Medium,82
+biotoxin,0.078,Very Hard,5076

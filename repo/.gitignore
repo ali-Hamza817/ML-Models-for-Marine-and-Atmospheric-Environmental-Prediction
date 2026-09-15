@@ -1,0 +1,14 @@
+# 忽略所有处理后的大数据和模型文件
+data/processed/
+models/
+outputs/figures/*.tif*
+outputs/plos_submission/*.tif
+
+# 保险起见，所有 npz 和 pkl 文件都不跟踪
+*.npz
+*.pkl
+# Ignore generated submission figures
+outputs/plos_submission/*.tif
+outputs/plos_submission/*.tiff
+outputs/figures/*.tif
+outputs/figures/*.tiff

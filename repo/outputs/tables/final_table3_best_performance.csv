@@ -1,0 +1,8 @@
+Rank,Dataset,Best Model,Best R²,MAE,Model Type,Improvement
+1,rolling_mean,XGB,0.8715,0.0120,Traditional ML,0.8873
+2,cleaned_data,XGB,0.8305,0.0246,Traditional ML,0.8354
+3,era5_daily,RF,0.5125,0.7749,Traditional ML,0.6866
+4,processed_seq,LSTM,0.5089,0.0442,Deep Learning,0.6051
+5,hydrographic,LSTM,0.4579,0.1460,Deep Learning,1.0499
+6,cast,RF,0.3832,926.6285,Traditional ML,0.3832
+7,biotoxin,LSTM,0.1707,14.2095,Deep Learning,0.5937

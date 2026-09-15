@@ -1,0 +1,1 @@
+{"params": {"learning_rate": 0.010705003264260288, "num_leaves": 65, "min_child_samples": 55, "colsample_bytree": 0.8698979026286637, "subsample": 0.7243271468896089, "reg_lambda": 1.0570338399102692e-07, "reg_alpha": 3.714293496782635e-07, "extra_trees": false}, "n": 554, "val_r2_search": 0.9021654210955411}

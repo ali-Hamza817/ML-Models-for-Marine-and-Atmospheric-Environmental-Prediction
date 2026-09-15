@@ -1,0 +1,4 @@
+dataset,target_col,pass_sanity_check,original_r2,permuted_r2,n_features,n_samples,issues
+hydrographic,CHLOROPHYLL-a (µg l-1),True,0.4420321322426083,-0.023754174713330765,7,4653,None
+phyto_wide,Pseudo-nitzschia americana/brasiliana (cells l-1),False,0.0,-3.4982150077819822,39,440,"零值过多 (>90%), 变异系数过大 (CV > 10)"
+phyto_long,GYMNODINIALES Karlodinium-like,False,-0.3886961343797817,-0.4717693732782468,1,82,样本量过小 (<100)

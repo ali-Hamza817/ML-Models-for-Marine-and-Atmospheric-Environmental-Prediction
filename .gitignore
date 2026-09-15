@@ -1,0 +1,17 @@
+# environments and caches
+.venv/
+.venv_pinned/
+__pycache__/
+*.pyc
+
+# large or local-only artefacts
+zenodo_marine-ml-benchmark.zip
+repo/data/
+repo/code/data_raw
+models/improved/**/*.joblib
+models/improved/**/*.pt
+logs/
+docs/
+REPORT.md
+experiments/make_pdfs.py
+paper/*.txt

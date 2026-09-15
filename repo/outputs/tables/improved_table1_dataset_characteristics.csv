@@ -1,0 +1,10 @@
+Dataset,Samples,Variables,Type,Target Variable,Time Range,Validated,Difficulty Level
+rolling_mean,"8,855",69,Time Series,Chlorophyll-a (smoothed),1992-2021,True,Easy
+cleaned_data,"7,819",69,Cross-sectional,Chlorophyll-a,1992-2021,True,Easy
+era5_daily,"102,982",8,Time Series,Wind speed (10m),2024-2025 (includes 2024+),True,Medium
+processed_seq,"8,039",30,Time Series,Chlorophyll-a (processed),1970-2005,True,Medium
+hydrographic,"4,653",11,Cross-sectional,Chlorophyll-a,2014-2023,True,Medium
+biotoxin,"5,076",2,Cross-sectional,Biotoxin concentration,2013-2023,True,Hard
+cast,"21,865",25,Cross-sectional,Bottom depth,1949-2016,True,Hard
+phyto_wide,440,46,Cross-sectional,Phytoplankton abundance,2018-2023,False,N/A
+phyto_long,82,1,Cross-sectional,Phytoplankton abundance,2018-2023,False,N/A

@@ -1,0 +1,10 @@
+Dataset,Latitude Column,Longitude Column,Lat Min,Lat Max,Lon Min,Lon Max
+biotoxin,LATITUDE (degrees North),LONGITUDE (degrees East),43.343565,43.355712,-2.448422,-2.444065
+cast,Lat_Dec,Lon_Dec,23.65,39.916666,-128.966666,-110.591666
+cleaned_data,G2latitude,G2longitude,-35.508,50.0163,120.79,179.13
+era5_daily,latitude,longitude,37.0,41.0,117.0,122.0
+hydrographic,LATITUDE (degrees North),LONGITUDE (degrees East),43.35685,43.35685,-2.448633,-2.448633
+phyto_long,N/A,N/A,N/A,N/A,N/A,N/A
+phyto_wide,LATITUDE (degrees North),LONGITUDE (degrees East),43.35685,43.35685,-2.448633,-2.448633
+processed_seq,N/A,N/A,N/A,N/A,N/A,N/A
+rolling_mean,G2latitude,G2longitude,-42.86917142857143,47.44744285714285,95.54142857142855,178.9567

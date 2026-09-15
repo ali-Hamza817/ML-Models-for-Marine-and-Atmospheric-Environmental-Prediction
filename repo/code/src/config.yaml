@@ -1,0 +1,171 @@
+datasets:
+  cleaned_data:
+    file: data_raw/Cleaned_Data_No_Outliers.xlsx
+    loader: excel
+    date_col: date
+    date_format: "%Y-%m-%d"
+    target_col: G2chla
+    freq: D
+    drop_cols: ["Unnamed: 15", "Unnamed: 16"]
+    feature_whitelist: ["G2latitude", "G2longitude", "G2tco2", "G2temperature",
+                       "G2salinity", "G2oxygen", "G2pressure", "G2depth",
+                       "G2phts25p0", "G2nitrate", "G2nitrite", "G2phosphate", "G2silicate"]
+    quality_checks:
+      - {column: "G2chla", min: 0, max: 1.0}
+      - {column: "G2temperature", min: -2, max: 40}
+      - {column: "G2salinity", min: 0, max: 50}
+
+  rolling_mean:
+    file: data_raw/Rolling_Mean_7_Days.xlsx
+    loader: excel
+    date_col: date
+    date_format: "%Y-%m-%d"
+    target_col: G2chla
+    freq: D
+
+  processed_seq:
+    file: data_raw/Processed_G2chla_Data.xlsx
+    loader: excel
+    date_col: Date          # Excel 序号
+    date_origin: "1970-01-01"
+    target_col: Target_G2chla
+    freq: Irregular
+
+  cast:
+    file: data_raw/cast.csv
+    loader: csv
+    date_col: Date
+    date_format: "%Y-%m-%d"
+    target_col: "Bottom_D"  # 使用海底深度作为目标（与海洋生产力相关）
+    freq: Irregular
+
+  era5_daily:
+    file: data_raw/ERA5_Bohai_daily_2024-25.xlsx
+    loader: excel
+    date_col: time
+    date_format: "%Y-%m-%d"
+    target_col: "wind10"  # 使用10米风速作为目标（影响海洋混合和叶绿素分布）
+    freq: D
+
+  biotoxin:
+    file: data_raw/Biotoxins in bivalves.xlsx
+    loader: excel
+    sheet: Biotoxins
+    date_col: UTC DATE (YYYYMMDD)
+    date_format: "%Y%m%d"
+    target_col: VALUE
+    freq: Irregular
+
+  hydrographic:
+    file: data_raw/Hydrographic_variables.xlsx
+    loader: excel
+    sheet: Hydrographic variables
+    date_col: UTC DATE (YYYYMMDD)
+    date_format: "%Y%m%d"
+    target_col: "CHLOROPHYLL-a (µg l-1)"
+    freq: Irregular
+    quality_checks:
+      - {column: "CHLOROPHYLL-a (µg l-1)", min: 0, max: 50}  # 过滤-999异常值
+      - {column: "TEMPERATURE (°C)", min: -2, max: 40}
+      - {column: "SALINITY", min: 0, max: 50}
+
+  phyto_long:                  # Data in Brief sheet
+    file: data_raw/Toxic_phytoplankton_v2.xlsx
+    loader: excel
+    sheet: Data in Brief
+    date_col: Sampling date
+    date_format: "%Y-%m-%d"
+    target_col: "GYMNODINIALES Karlodinium-like"  # 使用实际存在的物种列
+    freq: Irregular
+    long_format: true          # 触发专属处理
+
+  phyto_wide:                  # Phytoplankton sheet
+    file: data_raw/Toxic_phytoplankton_v2.xlsx
+    loader: excel
+    sheet: Phytoplankton
+    date_col: UTC DATE (YYYYMMDD)
+    date_format: "%Y%m%d"
+    target_col: "Pseudo-nitzschia americana/brasiliana (cells l-1)"  # 选择一个纯数值的物种列
+    freq: Irregular
+
+global:
+  impute_threshold: 0.30
+  rolling_windows: [7, 30]
+  random_seed: 42
+  n_trials: 30                # optuna 超参搜索次数 (增强版)
+
+  # 数据分割配置
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+
+  # 数据质量控制
+  outlier_detection: true
+  outlier_method: "iqr"       # iqr, zscore, isolation_forest
+  outlier_threshold: 3.0
+
+  # 特征工程配置
+  sequence_window: 30
+  sequence_horizon: 1
+  feature_selection: false
+  max_features: 50
+
+  # 模型配置
+  models:
+    rf:
+      n_estimators: [100, 800]
+      max_depth: [5, 20]
+      min_samples_split: [2, 10]
+      min_samples_leaf: [1, 5]
+    xgb:
+      learning_rate: [0.01, 0.2]
+      n_estimators: [200, 1200]
+      max_depth: [3, 10]
+      subsample: [0.8, 1.0]
+      colsample_bytree: [0.8, 1.0]
+    svr:
+      C: [0.1, 100]
+      gamma: [0.0001, 0.1]
+      epsilon: [0.01, 0.1]
+    lstm:
+      hidden_size: [32, 128]
+      num_layers: [1, 3]
+      dropout: [0.1, 0.5]
+      learning_rate: [0.0001, 0.01]
+    transformer:
+      d_model: [32, 64]
+      nhead: [2, 4]
+      num_layers: [1, 2]
+      dropout: [0.1, 0.2]
+      learning_rate: [0.0001, 0.001]
+
+  # 评估配置
+  bootstrap_samples: 1000
+  confidence_level: 0.95
+  cv_folds: 5
+
+# Paper reproduction settings
+paper:
+  figures_dir: "../figures"
+  tables_dir: "../tables"
+  supplementary_dir: "../supplementary"
+
+  # Figure specifications
+  figures:
+    dpi: 300
+    format: ["pdf", "png"]
+    font_family: "serif"
+    font_serif: ["Times New Roman"]
+    base_font_size: 8
+
+  # Table specifications
+  tables:
+    format: ["csv", "latex"]
+    precision: 3
+
+  # Supplementary materials
+  supplementary:
+    generate_full_results: true
+    generate_hyperparameter_logs: true
+    generate_permutation_tests: true
+    generate_small_sample_analysis: true

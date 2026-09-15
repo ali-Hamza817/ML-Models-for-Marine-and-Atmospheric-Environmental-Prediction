@@ -1,0 +1,35 @@
+{
+  "task": "cleaned_data",
+  "ensemble_weights": {
+    "cleaned_data__lgb": 0.5333333333333333,
+    "cleaned_data__xgb": 0.4666666666666667
+  },
+  "members": {
+    "cleaned_data__lgb": {
+      "weight": 0.5333333333333333,
+      "train_only": {
+        "file": "cleaned_data__lgb__train_only.joblib",
+        "test_R2_refit": 0.8810339573307504,
+        "test_R2_reported": 0.8810339573307504
+      },
+      "train_val": {
+        "file": "cleaned_data__lgb__train_val.joblib",
+        "test_R2_refit": 0.8972479571459244,
+        "test_R2_reported": 0.8972479571459244
+      }
+    },
+    "cleaned_data__xgb": {
+      "weight": 0.4666666666666667,
+      "train_only": {
+        "file": "cleaned_data__xgb__train_only.joblib",
+        "test_R2_refit": 0.8829345721482709,
+        "test_R2_reported": 0.8829345721482709
+      },
+      "train_val": {
+        "file": "cleaned_data__xgb__train_val.joblib",
+        "test_R2_refit": 0.8937897537498197,
+        "test_R2_reported": 0.8937897537498197
+      }
+    }
+  }
+}

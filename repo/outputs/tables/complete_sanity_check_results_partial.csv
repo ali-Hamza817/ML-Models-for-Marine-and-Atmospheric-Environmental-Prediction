@@ -1,0 +1,2 @@
+dataset,original_r2,permuted_r2,p_value,pass_sanity_check,n_features,n_samples,model_type,n_permutations,split_rule
+hydrographic,-0.7519271365180791,-0.1813299255718057,9.999000099990002e-05,False,11,3955,xgb,10000,chronological-70/15/15

@@ -1,0 +1,3 @@
+Dataset,Samples,Variables,Sample/Feature Ratio,Benchmark requirement,Meets benchmark requirement,Curse of Dimensionality Risk,Exclusion Reason,Data Quality,Recommendation
+phyto_long,82,1,82.00,N ≥ 500,False,LOW,Below benchmark inclusion threshold (N < 500),High quality but insufficient quantity,Descriptive statistics only
+phyto_wide,440,46,9.57,N ≥ 500 and sample/feature ratio ≥ 10,False,LOW,Below benchmark inclusion threshold and insufficient sample/feature ratio,High dimensional species data,Descriptive statistics only

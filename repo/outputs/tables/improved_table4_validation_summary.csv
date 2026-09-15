@@ -1,0 +1,10 @@
+Dataset,Samples,Validation,Best R²,Best Model,DL Success Rate²,Difficulty
+rolling_mean,"8,855",Pass,0.8554,RF,2/2,Easy
+cleaned_data,"7,819",Pass,0.8039,RF,2/2,Easy
+era5_daily,"102,982",Pass,0.6996,RF,0/2,Medium
+processed_seq,"8,039",Pass,0.0901,RIDGE,2/2,Hard
+cast,"21,865",Pass,0.0506,RF,0/2,Hard
+biotoxin,"5,076",Pass,-0.0069,RF,2/2,Very Hard
+hydrographic,"4,653",Fail (QA),-0.4805,MEAN,2/2,Very Hard
+phyto_long,82,Fail (QA),,,0/0,N/A
+phyto_wide,440,Fail (QA),,,0/0,N/A

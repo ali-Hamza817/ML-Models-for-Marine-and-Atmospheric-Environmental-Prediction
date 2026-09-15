@@ -1,0 +1,35 @@
+{
+  "task": "hydrographic",
+  "ensemble_weights": {
+    "hydrographic__hybrid__gru": 0.7666666666666667,
+    "hydrographic__hybrid__lgb": 0.23333333333333334
+  },
+  "members": {
+    "hydrographic__hybrid__gru": {
+      "weight": 0.7666666666666667,
+      "train_only": {
+        "file": "hydrographic__hybrid__gru__train_only.pt",
+        "test_R2_refit": 0.591682111445853,
+        "test_R2_reported": 0.591682111445853
+      },
+      "train_val": {
+        "file": "hydrographic__hybrid__gru__train_val.pt",
+        "test_R2_refit": 0.6285321672232151,
+        "test_R2_reported": 0.6285321672232151
+      }
+    },
+    "hydrographic__hybrid__lgb": {
+      "weight": 0.23333333333333334,
+      "train_only": {
+        "file": "hydrographic__hybrid__lgb__train_only.joblib",
+        "test_R2_refit": 0.5533231733202745,
+        "test_R2_reported": 0.5533231733202745
+      },
+      "train_val": {
+        "file": "hydrographic__hybrid__lgb__train_val.joblib",
+        "test_R2_refit": 0.5591587700704852,
+        "test_R2_reported": 0.5591587700704852
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "task": "rolling_mean",
+  "ensemble_weights": {
+    "rolling_mean__lgb": 0.4,
+    "rolling_mean__xgb": 0.6
+  },
+  "members": {
+    "rolling_mean__lgb": {
+      "weight": 0.4,
+      "train_only": {
+        "file": "rolling_mean__lgb__train_only.joblib",
+        "test_R2_refit": 0.8894887639856291,
+        "test_R2_reported": 0.8894887639856291
+      },
+      "train_val": {
+        "file": "rolling_mean__lgb__train_val.joblib",
+        "test_R2_refit": 0.8978354293174602,
+        "test_R2_reported": 0.8978354293174602
+      }
+    },
+    "rolling_mean__xgb": {
+      "weight": 0.6,
+      "train_only": {
+        "file": "rolling_mean__xgb__train_only.joblib",
+        "test_R2_refit": 0.8886469956481398,
+        "test_R2_reported": 0.8886469956481398
+      },
+      "train_val": {
+        "file": "rolling_mean__xgb__train_val.joblib",
+        "test_R2_refit": 0.8969719366915991,
+        "test_R2_reported": 0.8969719366915991
+      }
+    }
+  }
+}

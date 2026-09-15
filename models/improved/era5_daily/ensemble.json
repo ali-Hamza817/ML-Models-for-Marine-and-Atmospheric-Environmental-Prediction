@@ -1,0 +1,49 @@
+{
+  "task": "era5_daily",
+  "ensemble_weights": {
+    "era5_daily__context__lgb": 0.4,
+    "era5_daily__context__xgb": 0.23333333333333334,
+    "era5_daily__et": 0.36666666666666664
+  },
+  "members": {
+    "era5_daily__context__lgb": {
+      "weight": 0.4,
+      "train_only": {
+        "file": "era5_daily__context__lgb__train_only.joblib",
+        "test_R2_refit": 0.5438148288646191,
+        "test_R2_reported": 0.5438148288646191
+      },
+      "train_val": {
+        "file": "era5_daily__context__lgb__train_val.joblib",
+        "test_R2_refit": 0.5488434293693321,
+        "test_R2_reported": 0.5488434293693321
+      }
+    },
+    "era5_daily__context__xgb": {
+      "weight": 0.23333333333333334,
+      "train_only": {
+        "file": "era5_daily__context__xgb__train_only.joblib",
+        "test_R2_refit": 0.5490843507687111,
+        "test_R2_reported": 0.5490843507687111
+      },
+      "train_val": {
+        "file": "era5_daily__context__xgb__train_val.joblib",
+        "test_R2_refit": 0.5614894272284934,
+        "test_R2_reported": 0.5614894272284934
+      }
+    },
+    "era5_daily__et": {
+      "weight": 0.36666666666666664,
+      "train_only": {
+        "file": "era5_daily__et__train_only.joblib",
+        "test_R2_refit": 0.5600365243419552,
+        "test_R2_reported": 0.5600365243419552
+      },
+      "train_val": {
+        "file": "era5_daily__et__train_val.joblib",
+        "test_R2_refit": 0.5659347766162517,
+        "test_R2_reported": 0.5659347766162515
+      }
+    }
+  }
+}

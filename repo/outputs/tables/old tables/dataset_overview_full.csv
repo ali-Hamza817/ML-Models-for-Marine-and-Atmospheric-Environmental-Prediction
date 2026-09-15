@@ -1,0 +1,10 @@
+Dataset,Type,Period,Frequency,Samples,Variables,Target,Description
+era5_daily,Meteorological,2024-2025,Daily,102982,10,wind10 (m/s),ERA5 reanalysis meteorological data
+cast,Oceanographic stations,1973-2023,Irregular,21865,38,Bottom_D (m),CTD cast measurements
+rolling_mean,Chlorophyll-a,2000-2023,Irregular,8855,71,G2chla (mg/m³),Smoothed chlorophyll measurements
+processed_seq,Chlorophyll-a,2000-2023,Irregular,8039,30,G2chla (mg/m³),Sequential chlorophyll data
+cleaned_data,Chlorophyll-a,2000-2023,Irregular,7819,69,G2chla (mg/m³),Quality-controlled chlorophyll data
+biotoxin,Biotoxin concentration,2018-2023,Irregular,5076,15,G2chla (mg/m³),Harmful algal bloom toxin data
+hydrographic,Chlorophyll-a,2010-2023,Irregular,4653,15,G2chla (mg/m³),Hydrographic survey data
+phyto_wide,Phytoplankton abundance,2018-2023,Irregular,440,52,Pseudo-nitzschia (cells/L),Wide-format phytoplankton counts
+phyto_long,Phytoplankton abundance,2018-2023,Irregular,82,3,Karlodinium-like (cells/L),Long-format phytoplankton counts

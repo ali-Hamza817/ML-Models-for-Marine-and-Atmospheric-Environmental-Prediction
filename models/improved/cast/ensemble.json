@@ -1,0 +1,49 @@
+{
+  "task": "cast",
+  "ensemble_weights": {
+    "cast__lgb": 0.5,
+    "cast__rf": 0.26666666666666666,
+    "cast__xgb": 0.23333333333333334
+  },
+  "members": {
+    "cast__lgb": {
+      "weight": 0.5,
+      "train_only": {
+        "file": "cast__lgb__train_only.joblib",
+        "test_R2_refit": 0.4160648517486898,
+        "test_R2_reported": 0.4160648517486898
+      },
+      "train_val": {
+        "file": "cast__lgb__train_val.joblib",
+        "test_R2_refit": 0.43178586159581667,
+        "test_R2_reported": 0.43178586159581667
+      }
+    },
+    "cast__rf": {
+      "weight": 0.26666666666666666,
+      "train_only": {
+        "file": "cast__rf__train_only.joblib",
+        "test_R2_refit": 0.38584120658980725,
+        "test_R2_reported": 0.38584120658980725
+      },
+      "train_val": {
+        "file": "cast__rf__train_val.joblib",
+        "test_R2_refit": 0.4125487917866255,
+        "test_R2_reported": 0.4125487917866255
+      }
+    },
+    "cast__xgb": {
+      "weight": 0.23333333333333334,
+      "train_only": {
+        "file": "cast__xgb__train_only.joblib",
+        "test_R2_refit": 0.3903040019051607,
+        "test_R2_reported": 0.3903040019051607
+      },
+      "train_val": {
+        "file": "cast__xgb__train_val.joblib",
+        "test_R2_refit": 0.4125626323422682,
+        "test_R2_reported": 0.4125626323422682
+      }
+    }
+  }
+}

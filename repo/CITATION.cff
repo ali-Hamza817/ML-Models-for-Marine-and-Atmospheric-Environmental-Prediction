@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Marine ML Benchmark: Cross-Dataset Robustness Evaluation for Chlorophyll-a Prediction"
+abstract: "A comprehensive benchmark study evaluating machine learning model robustness across heterogeneous oceanographic datasets for chlorophyll-a prediction. This repository provides standardized evaluation protocols, reproducible code, and open-source tools for marine ecosystem monitoring research."
+authors:
+  - family-names: "[Your Family Name]"
+    given-names: "[Your Given Names]"
+    orcid: "https://orcid.org/[your-orcid-id]"
+    affiliation: "[Your Institution]"
+    email: "[your.email@institution.edu]"
+repository-code: "https://github.com/[username]/marine-ml-benchmark"
+url: "https://github.com/[username]/marine-ml-benchmark"
+license: MIT
+version: "1.0.0"
+date-released: "2025-01-15"
+keywords:
+  - "chlorophyll-a prediction"
+  - "cross-dataset evaluation"
+  - "model robustness"
+  - "marine ecosystem monitoring"
+  - "machine learning benchmark"
+  - "oceanographic data"
+  - "time series prediction"
+  - "deep learning"
+  - "XGBoost"
+  - "Random Forest"
+preferred-citation:
+  type: article
+  title: "Cross-Dataset Robustness of Machine Learning Models for Chlorophyll-a Prediction: A Comprehensive Benchmark Study"
+  authors:
+    - family-names: "[Your Family Name]"
+      given-names: "[Your Given Names]"
+      orcid: "https://orcid.org/[your-orcid-id]"
+  journal: "[Journal Name]"
+  year: 2025
+  volume: "[Volume]"
+  issue: "[Issue]"
+  start: "[Start Page]"
+  end: "[End Page]"
+  doi: "[DOI when available]"
